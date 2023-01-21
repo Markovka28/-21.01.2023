@@ -1,2 +1,16 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿/*Задача 41: Пользователь вводит с клавиатуры M чисел. 
+Посчитайте, сколько чисел больше 0 ввёл пользователь.*/
+
+//int[]arr=Enumerable.Range(-100,100).ToArray(); c помощью диапазона
+int[] arr = { 3, -2, -1, 4, 1, -2, 3, -8, 56 }; // с помощью заданных значений
+var A = 0;
+foreach (var x in arr)
+{
+    if (x>0)
+    {
+        A++;
+    }
+}
+Console.Write($"Введено {A} чисел больше нуля");
+
+
