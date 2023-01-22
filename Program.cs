@@ -1,42 +1,30 @@
-﻿/*Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном 
-массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.*/
+﻿/*Задача 52. Задайте двумерный массив из целых чисел. 
+Найдите среднее арифметическое элементов в каждом столбце.*/
 
-Console.Write("Введите количество строк: ");
-int rows = int.Parse(Console.ReadLine());
-Console.Write("Введите количество столбцов: ");
-int colums = int.Parse(Console.ReadLine());
-int[,] numbers = new int[5, 5];
-FillArray(numbers);
-PrintArray(numbers);
-if (rows < numbers.GetLength(0) && colums < numbers.GetLength(1)) 
-{
-    Console.WriteLine(numbers[rows, colums]);
-}
-else Console.WriteLine($"{rows}{colums} такого числа в массиве нет");
-void FillArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
+        Console.Write("Введите количество строк: ");
+        int rows = int.Parse(Console.ReadLine());
+        Console.Write("Введите количество столбцов: ");
+        int colm = int.Parse(Console.ReadLine());
+        int[,] mas = new int[rows, colm];
+        Random random = new Random();
+        int[] summ = new int[colm];
+        for (int i = 0; i < mas.GetLength(0); i++)
         {
-            array[i, j] = new Random().Next(1, 33);
+            for (int j = 0; j < mas.GetLength(1); j++)
+                mas[i, j] = random.Next(0, 10);
         }
-    }
-}
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int i = 0; i < mas.GetLength(0); i++)
         {
-            Console.Write(array[i, j] + " ");
+            for (int j = 0; j < mas.GetLength(1); j++)
+            {
+                Console.Write("{0,3:F2}", mas[i, j]); 
+                summ[i] += mas[j, i];
+            }
+            foreach (double elem in summ)
+            {
+            Console.WriteLine($"{elem / colm}");
+            }
+            Console.WriteLine();
         }
-        Console.WriteLine();
-    }
-    Console.WriteLine();
-} 
-int ReadInt(string message)
-{
-    Console.Write(message);
-    return Convert.ToInt32(Console.ReadLine());
-}
+
+        //ПОМОГИТЕ ПОЖАЛУЙСТА РАЗОБРАТЬСЯ ЧТО НЕ ТАК С КОДОМ НИ КАК НЕ МОГУ РЕШИТЬ ЭТУ ЗАДАЧУ, ЗА РАНЕЕ СПАСИБО
