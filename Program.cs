@@ -8,23 +8,27 @@
         int[,] mas = new int[rows, colm];
         Random random = new Random();
         int[] summ = new int[colm];
+        Console.WriteLine();
+
         for (int i = 0; i < mas.GetLength(0); i++)
         {
             for (int j = 0; j < mas.GetLength(1); j++)
+            {
                 mas[i, j] = random.Next(0, 10);
+               Console.Write("{0,5:F2} ", mas[i, j]);
+            }
+                Console.WriteLine(" ");
         }
         for (int i = 0; i < mas.GetLength(0); i++)
         {
             for (int j = 0; j < mas.GetLength(1); j++)
             {
-                Console.Write("{0,3:F2}", mas[i, j]); 
                 summ[i] += mas[j, i];
             }
+            Console.Write(" ");
+        }
             foreach (double elem in summ)
             {
-            Console.WriteLine($"{elem / colm}");
+            Console.Write($"{elem / colm:N1}");
             }
-            Console.WriteLine();
-        }
-
-        //ПОМОГИТЕ ПОЖАЛУЙСТА РАЗОБРАТЬСЯ ЧТО НЕ ТАК С КОДОМ НИ КАК НЕ МОГУ РЕШИТЬ ЭТУ ЗАДАЧУ, ЗА РАНЕЕ СПАСИБО
+            
